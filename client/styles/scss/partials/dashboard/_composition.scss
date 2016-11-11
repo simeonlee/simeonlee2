@@ -1,0 +1,12 @@
+.recharts-layer > g > rect {
+  stroke: $darkLynch !important;
+}
+
+.treemap-element-label { // major groupings label
+  font-weight: 100 !important;
+}
+
+.treemap-group-label { // small items label
+  stroke: $darkLynch !important;
+  font-weight: 100 !important;
+}

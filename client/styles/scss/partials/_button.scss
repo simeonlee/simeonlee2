@@ -1,0 +1,89 @@
+.journey-btn {
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: white;
+  border: 0;
+  opacity: 0.9;
+  width: 200px; // default
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 0;
+  border-radius: $border-radius;
+  font-weight: 200;
+  font-size: 14px;
+  &:link, &:hover, &:active, &:visited {
+    opacity: 1.0;
+    color: #fff;
+  }
+}
+
+.journey-btn-sm {
+  width: 100px;
+}
+
+.journey-btn-md {
+  width: 150px;
+}
+
+.journey-btn-lg {
+  width: 200px;
+}
+
+.journey-btn-xl {
+  width: 300px;
+}
+
+.journey-btn-primary {
+  background-color: $jade;
+  &:link, &:hover, &:active, &:visited {
+    background-color: $jade;
+  }
+}
+
+.journey-btn-secondary {
+  background-color: $cinnabar;
+  &:link, &:hover, &:active, &:visited {
+    background-color: $cinnabar;
+  }
+}
+
+.journey-btn-auth {
+  width: 300px;
+}
+
+.journey-btn-facebook {
+  background-color: #3b5998;
+}
+
+.journey-btn-amazon {
+  background-color: #FF9900;
+}
+
+.amazon-bumper {
+  margin-top: 12px;
+}
+
+.modal-btn-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.individual-setting > select {
+  height: 34px;
+  color: black;
+  font-size: 14px;
+  border: 0px;
+  margin: 0 5px;
+}
+
+.analyze-btn {
+  // width: 15% !important;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+}

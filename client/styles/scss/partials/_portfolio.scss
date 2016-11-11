@@ -1,0 +1,53 @@
+.portfolio-module {
+  position: relative;
+  clear: left;
+  width: 100%;
+  height: 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.portfolio-module-journey {
+  display: flex;
+  justify-content: center;
+  background-color: $darkLynch;
+}
+
+.portfolio-module-syncope {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F2F1EF;
+}
+
+.portfolio-title {
+  position: absolute;
+  top: 5.5%;
+  left: 5.5%;
+  font-size: 3.0em;
+  font-family: $major;
+  font-style: italic;
+  letter-spacing: 2px;
+  z-index: 999999;
+}
+
+.portfolio-title-journey {
+  color: white;
+}
+
+.portfolio-title-syncope {
+  color: #FF0080;
+}
+
+.portfolio-journey-ui {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.portfolio-syncope-ui {
+  width: 100%;
+  z-index: 0;
+}
