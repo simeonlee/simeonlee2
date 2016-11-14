@@ -4,7 +4,7 @@ var passport = require('passport');
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
-var port = 5000;
+var port = process.env.NODE_ENV === 'development' ? 5000 : 3000;
 
 require('./config/passport.js')(passport); // Authentication
 require('./config/middleware.js')(app, express, passport); // Middleware

@@ -127,6 +127,10 @@ gulp.task('forever', shell.task([
   'forever start server/server.js'
 ]));
 
+gulp.task('node', shell.task([
+  'node server/server.js'
+]));
+
 gulp.task('stop', shell.task([
   'forever stop server/server.js'
 ]));
@@ -158,6 +162,6 @@ gulp.task('prodStart', function() {
   runSequence(
     'set-prod',
     'build',
-    'forever'
+    'node'
   );
 });
