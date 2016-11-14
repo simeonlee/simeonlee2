@@ -16,12 +16,12 @@ module.exports = (app, express, passport) => {
   app.use(express.static(path.join(__dirname, '../../', 'dist')));
   app.use(favicon(path.join(__dirname, '../../', 'dist', 'images', 'icons', 'favicon', 'favicon.ico')));
 
-  app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
-    next();
-  });
+  // app.use(function (req, res, next) {
+  //   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  //   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  //   res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+  //   next();
+  // });
 
   app.use(cookieParser());
   app.use(session({
@@ -29,9 +29,9 @@ module.exports = (app, express, passport) => {
     resave: true,
     saveUninitialized: true,
   }));
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(flash())
+  // app.use(passport.initialize());
+  // app.use(passport.session());
+  // app.use(flash())
 
   // The '/scripts' endpoint below serves up 'node_modules' buried in the
   // root directory which is inaccessible by index.html from /client
@@ -41,25 +41,25 @@ module.exports = (app, express, passport) => {
   // app.use('/api/images', express.static(__dirname + '/../../images'));
 
 
+  // Packages required for React-Hot-Loader as follows:
+  const webpack = require('webpack');
+  const config = require('../../webpack.config.js');
+  const compiler = webpack(config);
+
+  app.use(require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    hot: true,
+    publicPath: config.output.publicPath,
+    stats: {
+      'colors': true,
+      'chunks': false, // Reduces junk seen in terminal;
+      'errors-only': true
+    }
+  }));
 
   // Enable React-Hot-Loader in development using webpack middleware
   if (process.env.NODE_ENV === 'development') {
 
-    // Packages required for React-Hot-Loader as follows:
-    const webpack = require('webpack');
-    const config = require('../../webpack.config.js');
-    const compiler = webpack(config);
-
-    app.use(require('webpack-dev-middleware')(compiler, {
-      noInfo: true,
-      hot: true,
-      publicPath: config.output.publicPath,
-      stats: {
-        'colors': true,
-        'chunks': false, // Reduces junk seen in terminal;
-        'errors-only': true
-      }
-    }));
     app.use(require('webpack-hot-middleware')(compiler));
 
   }
