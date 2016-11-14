@@ -9,8 +9,21 @@
 
 .portfolio-module-journey {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   background-color: $darkLynch;
+  overflow: hidden;
+  background:
+    // linear-gradient(
+    //   165deg,
+    //   rgba(25, 181, 254, 0.6),
+    //   rgba(102, 51, 153, 0.6) 
+    // ),
+    url(../../images/portfolio/journey/journey-artboard-lg.jpg) no-repeat center center /*fixed*/;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .portfolio-module-syncope {
@@ -18,18 +31,40 @@
   align-items: center;
   justify-content: center;
   background-color: #F2F1EF;
+  overflow: hidden;
 }
 
-.portfolio-title {
-  position: absolute;
-  top: 5.5%;
-  left: 5.5%;
-  font-size: 3.0em;
-  font-family: $major;
-  font-style: italic;
-  letter-spacing: 2px;
-  z-index: 999999;
+.portfolio-module-scavenge {
+  display: flex;
+  justify-content: center;
+  background-color: #EEEEEE;
+  overflow: hidden;
 }
+
+.portfolio-module-memly {
+  display: flex;
+  justify-content: center;
+  background-color: #446CB3;
+  overflow: hidden;
+}
+
+.portfolio-module-reddit {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(80, 80, 80);
+  overflow: hidden;
+}
+
+// .portfolio-title {
+//   position: absolute;
+//   top: 5.5%;
+//   left: 5.5%;
+//   font-size: 3.0em;
+//   font-family: $major;
+//   font-style: italic;
+//   letter-spacing: 2px;
+//   z-index: 999999;
+// }
 
 .portfolio-title-journey {
   color: white;
@@ -39,15 +74,52 @@
   color: #FF0080;
 }
 
-.portfolio-journey-ui {
+.portfolio-title-scavenge {
+  color: rgb(0, 196, 169);
+}
+
+.portfolio-title-memly {
+  color: white;
+}
+
+.portfolio-title-reddit {
+  color: white;
+}
+
+.portfolio-journey-page { // journal entry page
+  box-shadow: -12px 8px 5px #111;
   position: absolute;
-  bottom: 0;
-  width: 80%;
-  overflow: hidden;
-  z-index: 0;
+  right: 10%;
+  top: 20%;
+  width: 40%;
+}
+
+.portfolio-journey-mockup { // perspective skewed photoshop stack
+  margin-left: 10%;
+  height: 80%;
 }
 
 .portfolio-syncope-ui {
   width: 100%;
-  z-index: 0;
+}
+
+.portfolio-scavenge-ui {
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 10px 10px 5px rgba(50, 50, 50, 0.6);
+}
+
+.portfolio-memly-ui {
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 10px 10px 5px rgba(50, 50, 50, 0.6);
+}
+
+.portfolio-reddit-ui {
+  width: 60%;
+  box-shadow: 10px 10px 5px rgba(50, 50, 50, 0.6);
+  position: absolute;
+  top: 10%;
 }

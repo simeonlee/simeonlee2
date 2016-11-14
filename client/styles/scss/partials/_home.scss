@@ -1,3 +1,5 @@
+$solid-nearly-black: rgb(20, 20, 20);
+
 .intro, .bio {
   /* fallback for older browsers. */
   height: 100%;
@@ -9,13 +11,13 @@
 }
 
 .intro {
-  width: 55%;
-  width: 55vw;
+  width: 60%;
+  width: 60vw;
 }
 
 .bio {
-  width: 45%;
-  width: 45vw;
+  width: 40%;
+  width: 40vw;
 }
 
 .intro {
@@ -24,22 +26,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
   background:
-    /* top, transparent red, faked with gradient */ 
-    linear-gradient(
-      165deg,
-      rgba(25, 181, 254, 0.6),
-      rgba(102, 51, 153, 0.6) 
-    ),
-    /* bottom, image */
-    url(../../images/background/westside-bw.jpg) no-repeat center center fixed;
+    // linear-gradient(
+    //   90deg,
+    //   rgba(25, 181, 254, 0.6),
+    //   $solid-nearly-black
+    // ),
+    url(../../images/background/westside-bw.jpg) no-repeat center center /*fixed*/;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -89,7 +82,7 @@
   flex-direction: column;
   font-size: 0.9em;
   line-height: 1.9em;
-  background-color: rgb(20, 20, 20);
+  background-color: $solid-nearly-black;
 }
 
 .bio div {

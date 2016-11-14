@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Glyphicon } from 'react-bootstrap';
+import { Glyphicon } from 'react-bootstrap'
 // import { getWeek } from '../../utilities/utilities'
 import Page from './Page'
 import Timeline from './Timeline'

@@ -1,11 +1,11 @@
-.journey-btn {
-  border: 0;
-  border-radius: 5px;
+.simeon-btn {
+  font-family: $major;
+  font-style: italic;
+  border: 1px solid white;
   color: #fff;
   letter-spacing: 1px;
   cursor: pointer;
   color: white;
-  border: 0;
   opacity: 0.9;
   width: 200px; // default
   display: flex;
@@ -14,52 +14,52 @@
   padding: 7px 0;
   border-radius: $border-radius;
   font-weight: 200;
-  font-size: 14px;
+  font-size: 1.2em;
   &:link, &:hover, &:active, &:visited {
     opacity: 1.0;
     color: #fff;
   }
 }
 
-.journey-btn-sm {
+.simeon-btn-sm {
   width: 100px;
 }
 
-.journey-btn-md {
+.simeon-btn-md {
   width: 150px;
 }
 
-.journey-btn-lg {
+.simeon-btn-lg {
   width: 200px;
 }
 
-.journey-btn-xl {
+.simeon-btn-xl {
   width: 300px;
 }
 
-.journey-btn-primary {
+.simeon-btn-primary {
   background-color: $jade;
   &:link, &:hover, &:active, &:visited {
     background-color: $jade;
   }
 }
 
-.journey-btn-secondary {
+.simeon-btn-secondary {
   background-color: $cinnabar;
   &:link, &:hover, &:active, &:visited {
     background-color: $cinnabar;
   }
 }
 
-.journey-btn-auth {
+.simeon-btn-auth {
   width: 300px;
 }
 
-.journey-btn-facebook {
+.simeon-btn-facebook {
   background-color: #3b5998;
 }
 
-.journey-btn-amazon {
+.simeon-btn-amazon {
   background-color: #FF9900;
 }
 
