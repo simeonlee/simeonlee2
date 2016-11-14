@@ -48,7 +48,10 @@ jspm_packages
 .flooignore
 
 # build
-dist
+dist/data
+dist/files
+dist/styles
+dist/index.html
 
 #authentication
 auth.js

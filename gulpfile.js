@@ -74,7 +74,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('clean', function() {
-  return gulp.src('./dist/*')
+  return gulp.src(['./dist/data', './dist/files', './dist/styles', './dist/index.html'], {read: false})
     .pipe(clean({force: true}));
 });
 
@@ -103,7 +103,12 @@ gulp.task('copy-html-files', function () {
     .pipe(gulp.dest(config.build.html));
 });
 
-gulp.task('images', ['clean'], function() {
+gulp.task('clean-images', () => {
+  return gulp.src(['./dist/images/**', './dist/images/**/*'], {read: false})
+    .pipe(clean({force: true}));
+});
+ 
+gulp.task('images', ['clean-images'], () => {
   return gulp.src(config.src.img)
     // Pass in options to the task
     .pipe(imagemin({optimizationLevel: 5}))
@@ -129,7 +134,7 @@ gulp.task('stop', shell.task([
 gulp.task('build', function() {
   runSequence(
     'clean',
-    ['build-css', 'copy-json-files', 'copy-html-files', 'images']
+    ['build-css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
   );
 });
 
@@ -137,7 +142,7 @@ gulp.task('watch', function() {
   gulp.watch(config.src.css, ['build-css']);
   gulp.watch(config.src.json, ['copy-json-files']);
   gulp.watch(config.src.html, ['copy-html-files']);
-  gulp.watch(config.src.img, ['images']);
+  /*gulp.watch(config.src.img, ['images']);*/
 });
 
 gulp.task('default', function() {
