@@ -40,26 +40,24 @@ module.exports = (app, express, passport) => {
   app.use('/scripts', express.static(__dirname + '/../../node_modules'));
   // app.use('/api/images', express.static(__dirname + '/../../images'));
 
-
-  // Packages required for React-Hot-Loader as follows:
-  const webpack = require('webpack');
-  const config = require('../../webpack.config.js');
-  const compiler = webpack(config);
-
-  app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    hot: true,
-    publicPath: config.output.publicPath,
-    stats: {
-      'colors': true,
-      'chunks': false, // Reduces junk seen in terminal;
-      'errors-only': true
-    }
-  }));
-
   // Enable React-Hot-Loader in development using webpack middleware
   if (process.env.NODE_ENV === 'development') {
 
+    // Packages required for React-Hot-Loader as follows:
+    const webpack = require('webpack');
+    const config = require('../../webpack.config.js');
+    const compiler = webpack(config);
+
+    app.use(require('webpack-dev-middleware')(compiler, {
+      noInfo: true,
+      hot: true,
+      publicPath: config.output.publicPath,
+      stats: {
+        'colors': true,
+        'chunks': false, // Reduces junk seen in terminal;
+        'errors-only': true
+      }
+    }));
     app.use(require('webpack-hot-middleware')(compiler));
 
   }

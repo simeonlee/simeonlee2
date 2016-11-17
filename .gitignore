@@ -52,6 +52,7 @@ dist/data
 dist/files
 dist/styles
 dist/index.html
+dist/assets
 
 #authentication
 auth.js

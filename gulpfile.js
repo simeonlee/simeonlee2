@@ -12,6 +12,10 @@ const runSequence = require('run-sequence');
 const ngAnnotate = require('gulp-ng-annotate');
 const shell = require('gulp-shell');
 const plumber = require('gulp-plumber'); // Handle gulp.watch errors without throwing / cancelling nodemon
+const webpack = require('webpack-stream');
+
+
+
 
 // Live reload of css and html through 'browser-sync'
 const browserSync = require('browser-sync');
@@ -32,11 +36,17 @@ const config = {
   build: {
     html: './dist/',
     css: './dist/styles/css/',
-    js: '',
+    js: './dist/assets/',
     json: './dist/',
     img: './dist/images/'
   }
 };
+
+gulp.task('webpack', function() {
+  return gulp.src(config.src.js[0])
+    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(gulp.dest(config.build.js));
+});
 
 gulp.task('nodemon', (cb) => {
   var started = false;
@@ -127,18 +137,25 @@ gulp.task('forever', shell.task([
   'forever start server/server.js'
 ]));
 
-gulp.task('node', shell.task([
-  'node server/server.js'
-]));
-
 gulp.task('stop', shell.task([
   'forever stop server/server.js'
 ]));
 
-gulp.task('build', function() {
+gulp.task('node', shell.task([
+  'node server/server.js'
+]));
+
+gulp.task('devBuild', function() {
   runSequence(
     'clean',
     ['build-css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
+  );
+});
+
+gulp.task('prodBuild', function() {
+  runSequence(
+    'clean',
+    ['webpack', 'build-css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
   );
 });
 
@@ -152,7 +169,7 @@ gulp.task('watch', function() {
 gulp.task('default', function() {
   runSequence(
     'set-dev',
-    'build',
+    'devBuild',
     'watch',
     'browser-sync'
   );
@@ -161,7 +178,7 @@ gulp.task('default', function() {
 gulp.task('prodStart', function() {
   runSequence(
     'set-prod',
-    'build',
+    'prodBuild',
     'node'
   );
 });
