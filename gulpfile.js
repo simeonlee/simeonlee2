@@ -4,7 +4,8 @@ const concat = require('gulp-concat');
 const jshint = require('gulp-jshint');
 const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
-const minifyCSS = require('gulp-minify-css');
+// const minifyCSS = require('gulp-minify-css'); // deprecated
+const minifyCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const rename = require('gulp-rename');
 const clean = require('gulp-clean');
@@ -82,15 +83,16 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest(config.build.js));
 });
 
-gulp.task('build-css', function() {
-  var opts = { comments: true, spare: true };
+gulp.task('css', function() {
+  // var opts = { comments: true, spare: true };
   gulp.src(config.src.css)
     .pipe(plumber())
     .pipe(sass({
       outputStyle: 'expanded'
     }))
     .pipe(gulp.dest(config.build.css))
-    .pipe(minifyCSS(opts))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    // .pipe(minifyCSS(opts))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(config.build.css));
 });
@@ -122,19 +124,19 @@ gulp.task('images', ['clean-images'], () => {
 gulp.task('devBuild', function() {
   runSequence(
     'clean',
-    ['build-css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
+    ['css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
   );
 });
 
 gulp.task('prodBuild', function() {
   runSequence(
     'clean',
-    ['webpack', 'build-css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
+    ['webpack', 'css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
   );
 });
 
 gulp.task('watch', function() {
-  gulp.watch(config.src.css, ['build-css']);
+  gulp.watch(config.src.css, ['css']);
   gulp.watch(config.src.json, ['copy-json-files']);
   gulp.watch(config.src.html, ['copy-html-files']);
   /*gulp.watch(config.src.img, ['images']);*/
