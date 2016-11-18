@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
   // sequelize.sync().then(function() {
     // console.log('Synced with mySQL through Sequelize.');
     // https.createServer(serverOptions, app).listen(3000);
-    http.createServer(app).listen(1337);
+    http.createServer(app).listen(3000);
     // console.log('Listening on Port: 3000');
   // });
 
