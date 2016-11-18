@@ -10,7 +10,7 @@ var port = process.env.NODE_ENV === 'development' ? 5000 : 3000;
 require('./config/middleware.js')(app, express); // Middleware
 // require('./config/routes.js')(app); // Routes
 
-// if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
 
   // var privateKey = fs.readFileSync('./https/www_yourjourney_io.key');
   // var certificate = fs.readFileSync('./https/www_yourjourney_io.crt');
@@ -29,10 +29,16 @@ require('./config/middleware.js')(app, express); // Middleware
     // console.log('Listening on Port: 3000');
   // });
 
-// } else {
+  http.createServer(function(request, response) {
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.write("Hello World\n");
+    response.close();
+  }).listen(8000);
+
+} else {
   app.listen(port, () => {
     console.log('Listening on Port: ' + port);
   });
-// }
+}
 
 module.exports = app;
