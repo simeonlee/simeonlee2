@@ -28,7 +28,7 @@ const common = {
       // },
       {
         test: /\.(jpg|png)$/,
-        loader: 'file',
+        loader: 'file-loader',
         include: path.resolve(__dirname, 'client/images'),
         exclude: /node_modules/,
       }
