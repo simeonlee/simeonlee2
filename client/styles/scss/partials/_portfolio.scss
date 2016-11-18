@@ -5,85 +5,30 @@
   height: 100%;
   width: 100vw;
   height: 100vh;
+  background-color: $solid-nearly-black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .portfolio-module-journey {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  background-color: $darkLynch;
+  justify-content: center;
+  background-color: $solid-nearly-black;
   overflow: hidden;
-  background:
+  // background:
     // linear-gradient(
-    //   165deg,
-    //   rgba(25, 181, 254, 0.6),
-    //   rgba(102, 51, 153, 0.6) 
-    // ),
-    url(../../images/portfolio/journey/journey-artboard-lg.jpg) no-repeat center center /*fixed*/;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.portfolio-module-syncope {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #F2F1EF;
-  overflow: hidden;
-}
-
-.portfolio-module-scavenge {
-  display: flex;
-  justify-content: center;
-  background-color: #EEEEEE;
-  overflow: hidden;
-}
-
-.portfolio-module-memly {
-  display: flex;
-  justify-content: center;
-  background-color: #446CB3;
-  overflow: hidden;
-}
-
-.portfolio-module-reddit {
-  display: flex;
-  justify-content: center;
-  background-color: rgb(80, 80, 80);
-  overflow: hidden;
-}
-
-// .portfolio-title {
-//   position: absolute;
-//   top: 5.5%;
-//   left: 5.5%;
-//   font-size: 3.0em;
-//   font-family: $major;
-//   font-style: italic;
-//   letter-spacing: 2px;
-//   z-index: 999999;
-// }
-
-.portfolio-title-journey {
-  color: white;
-}
-
-.portfolio-title-syncope {
-  color: #FF0080;
-}
-
-.portfolio-title-scavenge {
-  color: rgb(0, 196, 169);
-}
-
-.portfolio-title-memly {
-  color: white;
-}
-
-.portfolio-title-reddit {
-  color: white;
+    //   // 165deg,
+    //   $solid-nearly-black,
+    //   $darkLynch
+    // );
+    // url(../../images/portfolio/journey/journey-artboard-lg.jpg) no-repeat center center /*fixed*/;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
 }
 
 .portfolio-journey-page { // journal entry page
@@ -94,32 +39,30 @@
   width: 40%;
 }
 
-.portfolio-journey-mockup { // perspective skewed photoshop stack
-  margin-left: 10%;
-  height: 80%;
+.portfolio-syncope-ui {
+  width: 70%;
 }
 
-.portfolio-syncope-ui {
-  width: 100%;
+.portfolio-journey-landing {
+  width: 50%;
 }
 
 .portfolio-scavenge-ui {
-  width: 70%;
-  position: absolute;
-  bottom: 0;
+  width: 50%;
   box-shadow: 10px 10px 5px rgba(50, 50, 50, 0.6);
 }
 
 .portfolio-memly-ui {
-  width: 70%;
-  position: absolute;
-  bottom: 0;
+  width: 50%;
   box-shadow: 10px 10px 5px rgba(50, 50, 50, 0.6);
 }
 
-.portfolio-reddit-ui {
-  width: 60%;
-  box-shadow: 10px 10px 5px rgba(50, 50, 50, 0.6);
-  position: absolute;
-  top: 10%;
+.portfolio-hover {
+  opacity: 0.5;
+  // cursor: pointer;
+  &:hover {
+    animation-fill-mode: both;
+    animation-duration: 1s, 0.5s;
+    animation-name: hover, solidify;
+  }
 }

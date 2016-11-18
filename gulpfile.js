@@ -13,17 +13,7 @@ const ngAnnotate = require('gulp-ng-annotate');
 const shell = require('gulp-shell');
 const plumber = require('gulp-plumber'); // Handle gulp.watch errors without throwing / cancelling nodemon
 const webpack = require('webpack-stream');
-
-
-
-
-// Live reload of css and html through 'browser-sync'
-const browserSync = require('browser-sync');
-
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-
-gulp.task('default', []);
+const browserSync = require('browser-sync'); // Live reload of css and html through 'browser-sync'
 
 const config = {
   src: {
@@ -42,10 +32,22 @@ const config = {
   }
 };
 
-gulp.task('webpack', function() {
-  return gulp.src(config.src.js[0])
-    .pipe(webpack( require('./webpack.config.js') ))
-    .pipe(gulp.dest(config.build.js));
+/* DEV TOOLS */
+
+gulp.task('lint', function() {
+  gulp.src('./client/**/*.js') //, './server/**/*.js' add to lint serverside js
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('fail'));
+});
+
+gulp.task('browser-sync', ['nodemon'], () => {
+  browserSync({
+    proxy: "http://localhost:5000",
+    files: config.src.css,
+    browser: "google chrome",
+    port: 3000
+  });
 });
 
 gulp.task('nodemon', (cb) => {
@@ -67,25 +69,17 @@ gulp.task('nodemon', (cb) => {
   });
 });
 
-gulp.task('browser-sync', ['nodemon'], () => {
-  browserSync({
-    proxy: "http://localhost:5000",
-    files: config.src.css,
-    browser: "google chrome",
-    port: 3000
-  });
-});
-
-gulp.task('lint', function() {
-  gulp.src('./client/**/*.js') //, './server/**/*.js' add to lint serverside js
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
-    .pipe(jshint.reporter('fail'));
-});
+/* BUILD TASKS */
 
 gulp.task('clean', function() {
   return gulp.src(['./dist/data', './dist/files', './dist/styles', './dist/index.html'], {read: false})
     .pipe(clean({force: true}));
+});
+
+gulp.task('webpack', function() {
+  return gulp.src(config.src.js[0])
+    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(gulp.dest(config.build.js));
 });
 
 gulp.task('build-css', function() {
@@ -125,26 +119,6 @@ gulp.task('images', ['clean-images'], () => {
     .pipe(gulp.dest(config.build.img));
 });
 
-gulp.task('set-prod', function() {
-    return process.env.NODE_ENV = 'production';
-});
-
-gulp.task('set-dev', function() {
-    return process.env.NODE_ENV = 'development';
-});
-
-gulp.task('forever', shell.task([
-  'forever start server/server.js'
-]));
-
-gulp.task('stop', shell.task([
-  'forever stop server/server.js'
-]));
-
-gulp.task('node', shell.task([
-  'node server/server.js'
-]));
-
 gulp.task('devBuild', function() {
   runSequence(
     'clean',
@@ -165,6 +139,30 @@ gulp.task('watch', function() {
   gulp.watch(config.src.html, ['copy-html-files']);
   /*gulp.watch(config.src.img, ['images']);*/
 });
+
+/* ENVIRONMENT TASKS */
+
+gulp.task('set-prod', function() {
+    return process.env.NODE_ENV = 'production';
+});
+
+gulp.task('set-dev', function() {
+    return process.env.NODE_ENV = 'development';
+});
+
+gulp.task('forever', shell.task([
+  'forever start server/server.js'
+]));
+
+gulp.task('stop', shell.task([
+  'forever stop server/server.js'
+]));
+
+gulp.task('node', shell.task([
+  'node server/server.js'
+]));
+
+/* DEV v. PROD */
 
 gulp.task('default', function() {
   runSequence(

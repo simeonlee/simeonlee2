@@ -3,21 +3,10 @@ $solid-nearly-black: rgb(20, 20, 20);
 .intro, .bio {
   /* fallback for older browsers. */
   height: 100%;
-
+  width: 100%;
   /* Set the height to match that of the viewport. */
   height: 100vh;
-
-  float: left;
-}
-
-.intro {
-  width: 60%;
-  width: 60vw;
-}
-
-.bio {
-  width: 40%;
-  width: 40vw;
+  width: 100vw;
 }
 
 .intro {
@@ -27,11 +16,11 @@ $solid-nearly-black: rgb(20, 20, 20);
   justify-content: center;
   flex-direction: column;
   background:
-    // linear-gradient(
-    //   90deg,
-    //   rgba(25, 181, 254, 0.6),
-    //   $solid-nearly-black
-    // ),
+    linear-gradient(
+      // 90deg,
+      rgba(255, 255, 255, 0),
+      $solid-nearly-black
+    ),
     url(../../images/background/westside-bw.jpg) no-repeat center center /*fixed*/;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -68,10 +57,10 @@ $solid-nearly-black: rgb(20, 20, 20);
   color: white;
   line-height: 1.2em;
 
-  transition: all ease-in .5s;
-  -moz-transition: all ease-in .5s;
-  -webkit-transition: all ease-in .5s;
-  -o-transition: all ease-in .5s;
+  // transition: all ease-in .5s;
+  // -moz-transition: all ease-in .5s;
+  // -webkit-transition: all ease-in .5s;
+  // -o-transition: all ease-in .5s;
 }
 
 .bio {
@@ -85,149 +74,58 @@ $solid-nearly-black: rgb(20, 20, 20);
   background-color: $solid-nearly-black;
 }
 
-.bio div {
-  width: 60%;
+.bio-container {
+  width: 50%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.bio-letter {
+  font-family: $major;
+  font-style: italic;
+  font-size: 34em;
+  color: rgba(255, 255, 255, 1.0);
+  z-index: 9999999;
+  float: left;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bio-right {
+  float: right;
+  width: 50%;
 }
 
 .bio-title {
   font-family: $minor;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.3px;
   color: rgba(255, 255, 255, 0.5);
 
-  transform : scale(1,0.95);
-  -webkit-transform:scale(1,0.95); /* Safari and Chrome */
-  -moz-transform:scale(1,0.95); /* Firefox */
-  -ms-transform:scale(1,0.95); /* IE 9+ */
-  -o-transform:scale(1,0.95); /* Opera */
+  // transform : scale(1,0.95);
+  // -webkit-transform:scale(1,0.95); /* Safari and Chrome */
+  // -moz-transform:scale(1,0.95); /* Firefox */
+  // -ms-transform:scale(1,0.95); /* IE 9+ */
+  // -o-transform:scale(1,0.95); /* Opera */
+  text-align: left;
 }
 
-* {-webkit-font-smoothing: antialiased;}
-
 .bio-text {
-  margin-top: 10px;
+  margin-top: 20px;
   font-family: georgia, serif;
   font-style: italic;
   font-weight: lighter;
-  color: rgba(255, 255, 255, 1.0);
+  color: rgba(255, 255, 255, 0.9);
+  text-align: left;
   // font-family: $major;
   // font-style: italic;
   // font-weight: lighter;
   letter-spacing: 0.8px;
   // color: rgb(240, 240, 240);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// .home-main-image {
-//   // box-shadow: inset 0 100em 0 100em rgba(0,0,0,.2);
-// }
-
-// .vignette {
-//   // background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.73) 100%);
-//   // background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.04)), color-stop(100%,rgba(0,0,0,0.73)));
-//   // background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.04) 0%,rgba(0,0,0,0.73) 100%);
-//   // background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0.04) 0%,rgba(0,0,0,0.73) 100%);
-//   // background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0.04) 0%,rgba(0,0,0,0.73) 100%);
-//   // background: radial-gradient(ellipse at center, rgba(0,0,0,0.04) 0%,rgba(0,0,0,0.73) 100%);  
-// }
-
-// .home-top-content-container {
-//   background-color: lightgray;
-// }
-
-// div.home-jumbotron.jumbotron {
-//   padding-top: 48px;
-//   padding-bottom: 48px;
-//   &:nth-child(odd) {
-//     background-color: $midLynch
-//   }
-// }
-
-// .home-banner {
-//   height: 100vh;
-//   min-height: 605px;
-//   background-image: url("../../images/home/homepage1.jpg");
-//   background-size: cover;
-//   background-position: center;
-// }
-
-// .home-login-button {
-//   position: absolute;
-//   top: 20px;
-//   right: 20px;
-// }
-
-// .home-title {
-//   margin-top: 0;
-//   margin-bottom: 5px;
-//   padding-top: 40px;
-//   text-align: center;
-//   color: $darkLynch;
-//   font-size: 70px;
-//   font-family: $major, serif;
-//   letter-spacing: 1.5px !important;
-//   text-shadow: 0 0 10px rgba(255, 255, 255, .5);
-// }
-
-// .home-slogan {
-//   margin-bottom: 40px;
-//   font-size: 25px;
-//   font-family: $minor, serif;
-//   color: $darkLynch;
-//   text-align: center;
-//   text-shadow: 0 0 20px rgba(255, 255, 255, 1);
-//   text-shadow: 0 0 20px rgba(255, 255, 255, 1);
-// }
-
-// .home-signup-form {
-//   max-width: 350px;
-//   margin: 0 auto;
-//   padding: 10px 25px;
-//   border-radius: 10px;
-//   box-shadow: inset 0 0 10em 5em rgba(0,0,0,.2);
-// }
-
-// .home-section-title {
-//   font-family: $minor, serif;
-//   color: $porcelain;
-//   margin-bottom: 17px;
-// }
-
-// .jumbo-banner {
-//   background-color: transparent !important;
-// }
-
-// .home-jumbotron {
-//   margin: 1px 0 !important;
-//   color: $silver;
-// }
-
-// .jumbo-right-text {
-//   text-align: right;
-//   margin-right: 8.33333333%;
-// }
-
-// .jumbo-left-text {
-//   display: block !important;
-//   margin-top: 0;
-//   height: 150px;
-// }
-
-// .jumbo-first {
-//   margin-top: -20px !important;
-// }
-
-// label {
-//   color: $midLynch;
-// }
