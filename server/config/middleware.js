@@ -10,8 +10,8 @@ module.exports = (app, express, passport) => {
 
   app.use(morgan('dev'));
 
-  app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({extended: true}));
 
   app.use(express.static(path.join(__dirname, '../../', 'dist')));
   app.use(favicon(path.join(__dirname, '../../', 'dist', 'images', 'icons', 'favicon', 'favicon.ico')));
@@ -23,7 +23,7 @@ module.exports = (app, express, passport) => {
     next();
   });
 
-  app.use(cookieParser());
+  app.use(cookieParser('ssshhhh, very secret'));
   app.use(session({
     secret: 'thisIsMySuperSecretKey',
     resave: true,
