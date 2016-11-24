@@ -131,7 +131,7 @@ gulp.task('devBuild', function() {
 gulp.task('prodBuild', function() {
   runSequence(
     'clean',
-    ['webpack', 'css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
+    ['css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
   );
 });
 
@@ -178,7 +178,8 @@ gulp.task('default', function() {
 gulp.task('prodStart', function() {
   runSequence(
     'set-prod',
-    'prodBuild',
-    'node'
+    'prodBuild', // now this is same as devBuild
+    'webpack',
+    'forever'
   );
 });
