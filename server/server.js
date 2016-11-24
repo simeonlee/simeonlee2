@@ -10,9 +10,11 @@ var port = process.env.NODE_ENV === 'development' ? 5000 : 4568;
 require('./config/middleware.js')(app, express); // Middleware
 // require('./config/routes.js')(app); // Routes
 
-// app.set('port', port);
-// var server = http.createServer(app);
-// server.listen(port);
+app.set('port', port);
+var server = http.createServer(app);
+server.listen(port, () => {
+  console.log('Server now listening on port: ' + port);
+});
 
 
 // if (process.env.NODE_ENV === 'production') {
@@ -41,9 +43,9 @@ require('./config/middleware.js')(app, express); // Middleware
 //   }).listen(8000);
 
 // } else {
-app.listen(port, () => {
-  console.log('Server now listening on port: ' + port);
-});
+// app.listen(port, () => {
+//   console.log('Server now listening on port: ' + port);
+// });
 // }
 
 module.exports = app;
