@@ -2,11 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http');
 var port = process.env.NODE_ENV === 'development' ? 5000 : 4568;
-// var passport = require('passport');
-// var https = require('https');
-// var fs = require('fs');
 
-// require('./config/passport.js')(passport); // Authentication
 require('./config/middleware.js')(app, express); // Middleware
 // require('./config/routes.js')(app); // Routes
 
@@ -15,37 +11,5 @@ var server = http.createServer(app);
 server.listen(port, () => {
   console.log('Server now listening on port: ' + port);
 });
-
-
-// if (process.env.NODE_ENV === 'production') {
-
-//   // var privateKey = fs.readFileSync('./https/www_yourjourney_io.key');
-//   // var certificate = fs.readFileSync('./https/www_yourjourney_io.crt');
-//   // var pemBundle = fs.readFileSync('./https/www_yourjourney_io_bundle.pem');
-
-//   // serverOptions = {
-//   //   ca: pemBundle,
-//   //   key: privateKey,
-//   //   cert: certificate
-//   // }
-
-//   // sequelize.sync().then(function() {
-//     // console.log('Synced with mySQL through Sequelize.');
-//     // https.createServer(serverOptions, app).listen(3000);
-//     // http.createServer(app).listen(3000);
-//     // console.log('Listening on Port: 3000');
-//   // });
-
-//   http.createServer(function(request, response) {
-//     response.writeHead(200, {"Content-Type": "text/plain"});
-//     response.write("Hello World\n");
-//     response.close();
-//   }).listen(8000);
-
-// } else {
-// app.listen(port, () => {
-//   console.log('Server now listening on port: ' + port);
-// });
-// }
 
 module.exports = app;
