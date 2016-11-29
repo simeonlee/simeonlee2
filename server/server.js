@@ -1,4 +1,3 @@
-// require('react-hot-loader/patch');
 var express = require('express');
 var app = express();
 var http = require('http');
