@@ -33,7 +33,7 @@ const common = {
         exclude: /node_modules/,
       },
       {
-        test: require.resolve('wowjs/dist/wow.min.js'), 
+        test: require.resolve('wowjs/dist/wow.min.js'),
         loader: 'exports?this.WOW'
       }
     ]
