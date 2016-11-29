@@ -15,7 +15,7 @@ const Bio = () => {
     <div className="bio">
       <div className="bio-container">
         <div className="bio-letter wow fadeInLeft">S</div>
-        <div className="bio-right">
+        <div className="bio-right wow fadeInRight">
           <div className="bio-title">Chicago-born</div>
           <div className="bio-title">Los Angeles-educated</div>
           <div className="bio-title">New York-trained</div>
