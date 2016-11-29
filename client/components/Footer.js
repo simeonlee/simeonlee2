@@ -8,12 +8,12 @@ import pdf from '../images/icons/contact/pdf@2x.png';
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer-header wow fadeInUp">
+      <div className="footer-header wow fadeInDown">
         <div className="footer-title">Let's build together.</div>
         <div className="footer-subtitle">Job proposal, freelance opportunity or even a coffee - I would like to hear from you</div>
       </div>
       {/*<a className="simeon-btn" href="/files/simeon-lee-resume.pdf" target="_blank">Download Resume PDF</a>*/}
-      <div className="footer-modules wow fadeIn">
+      <div className="footer-modules wow fadeInUp">
         <a href="mailto:simeonhlee@gmail.com" target="_blank">
           <div className="email">
             <img src={email} className="contact-icon" />
