@@ -31,6 +31,10 @@ const common = {
         loader: 'file',
         include: path.resolve(__dirname, 'client/images'),
         exclude: /node_modules/,
+      },
+      {
+        test: require.resolve('wowjs/dist/wow.min.js'), 
+        loader: 'exports?this.WOW'
       }
     ]
   },
