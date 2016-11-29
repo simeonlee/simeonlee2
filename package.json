@@ -5,11 +5,7 @@
   "main": "client/index.js",
   "scripts": {
     "start": "nodemon server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --progress --colors --watch --inline --content-base .",
-    "build-css": "node-sass --include-path scss client/styles/scss/main.scss client/styles/css/styles.css",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
