@@ -51,40 +51,40 @@ const Character = () => {
 
   return (
     <div className="character">
-      <div className="character-module wow fadeInLeft">
-        <div className="character-title wow fadeInDown">
+      <div className="character-module wow fadeInRight" data-wow-duration="1s" data-wow-delay="1s">
+        <div className="character-title">
           <div>{productTitle}</div>
         </div>
-        <div className="character-icon wow fadeIn">
+        <div className="character-icon">
           <img src={productIcon} />
         </div>
-        <div className="character-text wow fadeInUp">
+        <div className="character-text">
           <div>{productText[0]}</div>
           <div>{productText[1]}</div>
           <div>{productText[2]}</div>
         </div>
       </div>
-      <div className="character-module wow fadeIn">
-        <div className="character-title wow fadeInDown">
+      <div className="character-module wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div className="character-title">
           <div>{teamTitle}</div>
         </div>
-        <div className="character-icon wow fadeIn">
+        <div className="character-icon">
           <img src={teamIcon} />
         </div>
-        <div className="character-text wow fadeInUp">
+        <div className="character-text">
           <div>{teamText[0]}</div>
           <div>{teamText[1]}</div>
           <div>{teamText[2]}</div>
         </div>
       </div>
-      <div className="character-module wow fadeInRight">
-        <div className="character-title wow fadeInDown">
+      <div className="character-module wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.5s">
+        <div className="character-title">
           <div>{businessTitle}</div>
         </div>
-        <div className="character-icon wow fadeIn">
+        <div className="character-icon">
           <img src={businessIcon} />
         </div>
-        <div className="character-text wow fadeInUp">
+        <div className="character-text">
           <div>{businessText[0]}</div>
           <div>{businessText[1]}</div>
           <div>{businessText[2]}</div>

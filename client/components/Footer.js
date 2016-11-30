@@ -8,11 +8,11 @@ import pdf from '../images/icons/contact/pdf@2x.png';
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer-header wow fadeInDown">
+      <div className="footer-header wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
         <div className="footer-title">Let's build together.</div>
         <div className="footer-subtitle">Job proposal, freelance opportunity or even a coffee - I would like to hear from you</div>
       </div>
-      <div className="footer-modules wow fadeIn">
+      <div className="footer-modules wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
         <a href="mailto:simeonhlee@gmail.com" target="_blank">
           <div className="email">
             <img src={email} className="contact-icon" />

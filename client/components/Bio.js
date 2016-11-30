@@ -14,13 +14,13 @@ const Bio = () => {
   return (
     <div className="bio">
       <div className="bio-container">
-        <div className="bio-letter wow fadeInLeft">S</div>
-        <div className="bio-right wow fadeInRight">
-          <div className="bio-title wow fadeInDown">Chicago-born</div>
-          <div className="bio-title wow fadeInDown">Los Angeles-educated</div>
-          <div className="bio-title wow fadeInDown">New York-trained</div>
-          <div className="bio-title wow fadeInDown">San Francisco-based</div>
-          <div className="bio-text wow fadeInUp">{bio}</div>
+        <div className="bio-letter wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">S</div>
+        <div className="bio-right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+          <div className="bio-title">Chicago-born</div>
+          <div className="bio-title">Los Angeles-educated</div>
+          <div className="bio-title">New York-trained</div>
+          <div className="bio-title">San Francisco-based</div>
+          <div className="bio-text">{bio}</div>
         </div>
       </div>
     </div>
