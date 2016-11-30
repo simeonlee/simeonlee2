@@ -5,6 +5,7 @@ import businessIcon from '../images/icons/character/barchart-icon@2x.png';
 
 const Character = () => {
   const productTitle = '\"How you sell yourself is how you\'ll be bought\"';
+  // Consider: 'Done is better than perfect'
   const productText = ['Simeon has a keen eye for product-market fit \
                         developed over years of working with skilled teams \
                         to develop product campaigns that cater to \
@@ -16,8 +17,8 @@ const Character = () => {
                         understanding the greater picture \
                         and the overall sum of the technical parts.',
                        'In his worldview, well-written code has elegance, \
-                        but beautiful technology is ultimately a tool \
-                        to achieve much greater means.'];
+                        but beautiful technology is first and foremost \
+                        a powerful tool to achieve greater means.'];
 
   const teamTitle = '\"No team outworks teamwork in making the dream work\"';
   const teamText = ['Through various leadership roles, \
@@ -28,12 +29,12 @@ const Character = () => {
                     'One of his highest mission priorities \
                      is to cultivate an undercurrent of \
                      empathy that informs mindful decision-making. \
-                     This author\'s life is a journey guided \
-                     by a north-star destination to understand \
-                     what truly motivates others around him.',
+                     Throughout life, he has found that \
+                     most projects truly start at understanding \
+                     what deeply motivates those around him.',
                     'To him, the most satisfactory way forward \
-                     is one in which all stakeholders benefit \
-                     as a result of intelligent, goal-conscious compromise.'];
+                     is one in which all stakeholders feel empowered \
+                     as a result of having their voices heard.'];
 
   const businessTitle = '\"Companies never die, they just run out of money\"';
   const businessText = ['Simeon is skilled in business and product management \
