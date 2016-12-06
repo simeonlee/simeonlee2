@@ -20,7 +20,7 @@ export default class Home extends Component {
         <Landing />
         <Bio />
         <Journey />
-        <Character />
+        {/*<Character />*/}
         <Memly />
         <Syncope />
         {/*<Scavenge />*/}
