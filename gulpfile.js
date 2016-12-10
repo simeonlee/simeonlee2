@@ -1,10 +1,8 @@
 const gulp = require('gulp');
-const nodemon = require('gulp-nodemon');
 const concat = require('gulp-concat');
 const jshint = require('gulp-jshint');
 const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
-// const minifyCSS = require('gulp-minify-css'); // deprecated
 const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const rename = require('gulp-rename');
@@ -15,6 +13,7 @@ const shell = require('gulp-shell');
 const plumber = require('gulp-plumber'); // Handle gulp.watch errors without throwing / cancelling nodemon
 const webpack = require('webpack-stream');
 const browserSync = require('browser-sync'); // Live reload of css and html through 'browser-sync'
+const nodemon = require('gulp-nodemon');
 
 const config = {
   src: {
@@ -44,10 +43,10 @@ gulp.task('lint', function() {
 
 gulp.task('browser-sync', ['nodemon'], () => {
   browserSync({
-    proxy: "http://localhost:5000",
+    proxy: "localhost:5000",
     files: config.src.css,
-    browser: "google chrome",
-    port: 3000
+    port: 3000,
+    // browser: "google chrome"
   });
 });
 
@@ -79,7 +78,7 @@ gulp.task('clean', function() {
 
 gulp.task('webpack', function() {
   return gulp.src(config.src.js[0])
-    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(webpack(require('./webpack.config.js')))
     .pipe(gulp.dest(config.build.js));
 });
 
@@ -121,17 +120,10 @@ gulp.task('images', ['clean-images'], () => {
     .pipe(gulp.dest(config.build.img));
 });
 
-gulp.task('devBuild', function() {
+gulp.task('build', function() {
   runSequence(
     'clean',
-    ['css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
-  );
-});
-
-gulp.task('prodBuild', function() {
-  runSequence(
-    'clean',
-    ['css', 'copy-json-files', 'copy-html-files'/*, 'images'*/]
+    ['css', 'copy-json-files', 'copy-html-files']
   );
 });
 
@@ -146,6 +138,10 @@ gulp.task('watch', function() {
 
 gulp.task('set-prod', function() {
     return process.env.NODE_ENV = 'production';
+});
+
+gulp.task('set-pres', function() {
+    return process.env.NODE_ENV = 'presentation';
 });
 
 gulp.task('set-dev', function() {
@@ -166,19 +162,27 @@ gulp.task('node', shell.task([
 
 /* DEV v. PROD */
 
-gulp.task('default', function() {
+gulp.task('dev', function() {
   runSequence(
     'set-dev',
-    'devBuild',
+    'build',
     'watch',
     'browser-sync'
   );
 });
 
-gulp.task('prodStart', function() {
+gulp.task('pres', function() {
+  runSequence(
+    'build',
+    'webpack',
+    'node'
+  );
+});
+
+gulp.task('prod', function() {
   runSequence(
     'set-prod',
-    'prodBuild', // now this is same as devBuild
+    'build',
     'webpack',
     'forever'
   );

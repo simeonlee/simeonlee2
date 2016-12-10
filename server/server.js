@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http');
-var port = process.env.NODE_ENV === 'development' ? 5000 : 4568;
+var port = (process.env.NODE_ENV === 'development') ? 5000 : 4568;
 
 // Enable React-Hot-Loader in development using webpack middleware
 if (process.env.NODE_ENV === 'development') {
@@ -26,7 +26,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 require('./config/middleware.js')(app, express); // Middleware
-// require('./config/routes.js')(app); // Routes
 
 app.set('port', port);
 var server = http.createServer(app);
