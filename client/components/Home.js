@@ -2,28 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Landing from './Landing';
 import Bio from './Bio';
-import Character from './Character';
+import Portfolio from './Portfolio';
 import Footer from './Footer';
-import Syncope from './portfolio/Syncope';
-import Journey from './portfolio/Journey';
-import Memly from './portfolio/Memly';
-import Scavenge from './portfolio/Scavenge';
+import Helmet from 'react-helmet'; // document head manager
 
 export default class Home extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
     return (
       <div>
+        <Helmet title="The Portfolio of Simeon Lee" />
         <Landing />
         <Bio />
-        <Journey />
-        {/*<Character />*/}
-        <Memly />
-        <Syncope />
-        {/*<Scavenge />*/}
+        <Portfolio />
         <Footer />
       </div>
     )

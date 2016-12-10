@@ -1,96 +1,106 @@
-nav {
-  z-index: 9999999;
-  letter-spacing: 1.2px;
-  div {
-    background-color: white;
-    color: black !important;
+.nav {
+  color: white;
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: 100vw;
+  height: 20%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 10%;
+  @include for-tablet-landscape-up {
+    justify-content: space-between;
+  }
+  &.transformed {
+    animation-name: nav-shrink;
+    animation-fill-mode: both;
+    animation-duration: 500ms;
+  }
+  &.untransformed {
+    animation-name: nav-enlarge;
+    animation-fill-mode: both;
+    animation-duration: 500ms;
   }
 }
 
-nav button {
-  border: 0 !important;
+.nav-text {
+  // color: white;
+  font-family: $major;
+  font-style: italic;
+  font-weight: 100;
+  margin: 0;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  margin: 0;
+  // &.transformed {
+  //   animation-name: text-darken;
+  //   animation-fill-mode: both;
+  //   animation-duration: 500ms;
+  // }
+  // &.untransformed {
+  //   animation-name: text-lighten;
+  //   animation-fill-mode: both;
+  //   animation-duration: 500ms;
+  // }
+  @include for-tablet-landscape-up {
+    position: relative;
+    display: inline;
+    margin: 20px;
+    visibility: visible;
+  }
 }
-
-.nav-link {
-  color: black !important;
-}
-
-// .brand-centered {
-//   display: flex;
-//   justify-content: center;
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   left: 0;
-// }
 
 .logo {
-  color: black;
-  font-size: 30px;
-  font-family: $major, serif;
-  letter-spacing: 1.5px !important;
+  margin: 0 0 0 10%;
+  cursor: pointer;
+  @include for-tablet-landscape-up {
+    margin: 0 4% 0 10%;
+  }
 }
 
-.navbar-brand {
-  height: $nav-height;
-  display: flex;
-  align-items: center;
+.logo-img {
+  width: 70px;
+  &.transformed {
+    animation-name: logo-shrink;
+    animation-fill-mode: both;
+    animation-duration: 500ms;
+  }
+  &.untransformed {
+    animation-name: logo-enlarge;
+    animation-fill-mode: both;
+    animation-duration: 500ms;
+  }
+  @include for-tablet-landscape-up {
+  }
 }
 
-.navbar-left, .navbar-right {
-  width: 40%;
+.cart {
+  margin: 0 10% 0 0;
+  cursor: pointer;
+  width: 40px;
+  @include for-tablet-landscape-up {
+    margin: 0 10% 0 0
+  }
 }
 
-.nav > li {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cart-img {
+  width: 100%;
+  &.transformed {
+    animation-name: cart-shrink;
+    animation-fill-mode: both;
+    animation-duration: 500ms;
+  }
+  &.untransformed {
+    animation-name: cart-enlarge;
+    animation-fill-mode: both;
+    animation-duration: 500ms;
+  }
+  @include for-tablet-landscape-up {
+  }
 }
-
-/* line height is 16px so add 44px top and bottom to equal the new .navbar-brand 60px height */
-.nav > li > a {
-  padding-top: 22px;
-  padding-bottom: 22px;
-  font-size: 16px;
-}
-.navbar-toggle {
-  padding: 0;
-  margin: 25px 15px 25px 0;
-}
-
-.wrap {
-  border: 0 !important;
-  border-radius: 0 !important;
-}
-
-.navbar-collapse {
-  border: 0px solid rgba(255, 255, 255, 0.0) !important;
-}
-
-.nav-active {
-  box-shadow: 0 2px 0 0 white;
-  // box-shadow: 0 2px 0 0 $lynch;
-}
-
-.navbar-nav > li > .dropdown-menu {
-  z-index: 9999999;
-}
-
-/*
-  HOMEPAGE NAV:
-*/
-
-.brand-left {
-  display: flex;
-  justify-content: left;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 20px;
-}
-
-li.home-login-button {
-  float: right;
-}
-

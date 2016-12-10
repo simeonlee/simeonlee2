@@ -14,6 +14,7 @@ const plumber = require('gulp-plumber'); // Handle gulp.watch errors without thr
 const webpack = require('webpack-stream');
 const browserSync = require('browser-sync'); // Live reload of css and html through 'browser-sync'
 const nodemon = require('gulp-nodemon');
+const historyFallback = require('connect-history-api-fallback');
 
 const config = {
   src: {
@@ -43,10 +44,10 @@ gulp.task('lint', function() {
 
 gulp.task('browser-sync', ['nodemon'], () => {
   browserSync({
-    proxy: "localhost:5000",
-    files: config.src.css,
+    proxy: 'localhost:5000',
     port: 3000,
-    // browser: "google chrome"
+    files: config.src.css,
+    middleware: [historyFallback()],
   });
 });
 
@@ -82,7 +83,7 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest(config.build.js));
 });
 
-gulp.task('css', function() {
+gulp.task('sass', function() {
   // var opts = { comments: true, spare: true };
   gulp.src(config.src.css)
     .pipe(plumber())
@@ -123,15 +124,14 @@ gulp.task('images', ['clean-images'], () => {
 gulp.task('build', function() {
   runSequence(
     'clean',
-    ['css', 'copy-json-files', 'copy-html-files']
+    ['sass', 'copy-json-files', 'copy-html-files']
   );
 });
 
 gulp.task('watch', function() {
-  gulp.watch(config.src.css, ['css']);
+  gulp.watch(config.src.css, ['sass']);
   gulp.watch(config.src.json, ['copy-json-files']);
   gulp.watch(config.src.html, ['copy-html-files']);
-  /*gulp.watch(config.src.img, ['images']);*/
 });
 
 /* ENVIRONMENT TASKS */
