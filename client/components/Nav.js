@@ -40,7 +40,7 @@ export default class Nav extends Component {
           </div>
         </Link>
         <a
-          href="https://www.instagram.com/simeonleephotography/"
+          href="/photography"
           target="_blank"
           className="wow fadeInUp"
           data-wow-duration="1s"

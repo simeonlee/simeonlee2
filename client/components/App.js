@@ -6,6 +6,7 @@ import Portfolio from './Portfolio';
 import Journey from './portfolio/Journey';
 import Bio from './Bio';
 import Footer from './Footer';
+import Photography from './Photography';
 import WOW from 'wowjs/dist/wow.min.js';
 
 export default class App extends Component {
@@ -23,6 +24,7 @@ export default class App extends Component {
             <Route path="/" component={Home}/>
             <Route path="/showcase" component={Portfolio}/>
             <Route path="/journey" component={Journey}/>
+            <Route path="/photography" component={Photography}/>
             <Route path="/about" component={Bio}/>
             <Route path="/contact" component={Footer}/>
           </Route>

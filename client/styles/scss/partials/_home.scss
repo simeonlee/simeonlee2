@@ -1,4 +1,4 @@
-.intro, .bio {
+.bio {
   /* fallback for older browsers. */
   height: 100%;
   width: 100%;
@@ -7,58 +7,56 @@
   width: 100vw;
 }
 
-.intro {
-  position: relative;
+// .intro {
+  // position: relative;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
+  // background:
+    // linear-gradient(
+    //   // 90deg,
+    //   rgba(255, 255, 255, 0),
+    //   $solid-nearly-black
+    // ),
+    // url(../../images/background/ink_scape_min.jpg) no-repeat center center /*fixed*/;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+// }
+
+// .intro-name {
+//   position: absolute;
+//   top: 10%;
+//   left: 10%;
+//   font-family: $major;
+//   font-style: italic;
+//   letter-spacing: 2px;
+//   font-size: 1.2em;
+//   color: white;
+// }
+
+.inspo {
+  position: fixed;
+  z-index: 0;
+  top: 35%;
+  left: 10%;
+  width: 80%;
+  height: 30%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background:
-    linear-gradient(
-      // 90deg,
-      rgba(255, 255, 255, 0),
-      $solid-nearly-black
-    ),
-    url(../../images/background/westside-bw.jpg) no-repeat center center /*fixed*/;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.intro-name {
-  position: absolute;
-  top: 10%;
-  left: 10%;
+  justify-content: flex-start;
   font-family: $major;
   font-style: italic;
-  letter-spacing: 2px;
-  font-size: 1.2em;
   color: white;
-  // @media (min-width: 800px) {
-  //   font-size: 30px;
-  // }
-  // @media (min-width: 1200px) {
-  //   font-size: 40px;
-  // }
-}
-
-.intro-inspiration {
-  // position: absolute;
-  // top: 30%;
-  // left: 15%;
-  width: 80%;
-  font-family: $major;
-  font-style: italic;
-  // letter-spacing: 2px;
-  font-size: 3.6em;
-  color: white;
-  line-height: 1.2em;
-
-  // transition: all ease-in .5s;
-  // -moz-transition: all ease-in .5s;
-  // -webkit-transition: all ease-in .5s;
-  // -o-transition: all ease-in .5s;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: left;
+  @include for-tablet-landscape-up {
+    font-size: 48px;
+    line-height: 56px;
+  }
 }
 
 .bio {
@@ -69,7 +67,7 @@
   flex-direction: column;
   font-size: 0.9em;
   line-height: 1.9em;
-  background-color: $solid-nearly-black;
+  background-color: $primary-bg;
 }
 
 .bio-container {

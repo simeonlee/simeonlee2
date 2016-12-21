@@ -3,6 +3,7 @@ $major: 'kepler-std-display', georgia, serif;
 $minor: 'Lato'; // 'Freemason', Helvetica, Arial, sans-serif;
 
 /* Colors */
+$primary-bg: black;
 $solid-nearly-black: rgb(20, 20, 20);
 $haze: #ECECEC;
 $porcelain: #ECF0F1;
@@ -37,12 +38,12 @@ $border-radius: 4px;
 }
 
 body {
-  background-color: #141414;
+  background-color: $primary-bg;
 }
 
 * {
   font-family: $minor, sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -69,6 +70,13 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+.window-fit {
+  min-height: 100%;
+  min-height: 100vh;
+  min-width: 100%;
+  min-width: 100vw;
 }
 
 .transparent {

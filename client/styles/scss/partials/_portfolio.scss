@@ -5,7 +5,7 @@
   height: 100%;
   width: 100vw;
   height: 100vh;
-  background-color: $solid-nearly-black;
+  background-color: $primary-bg;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,12 +16,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $solid-nearly-black;
+  background-color: $primary-bg;
   overflow: hidden;
   // background:
     // linear-gradient(
     //   // 165deg,
-    //   $solid-nearly-black,
+    //   $primary-bg,
     //   $darkLynch
     // );
     // url(../../images/portfolio/journey/journey-artboard-lg.jpg) no-repeat center center /*fixed*/;

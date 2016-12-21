@@ -1,0 +1,327 @@
+/*
+  Custom Variables are accessible via: {{ variable_name }}
+*/
+
+.clear {
+  clear: both;
+  height: 0px;
+  visibility: hidden;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+section {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Base */
+
+{% if color_mode == 'vintage' %}
+  {% assign bg_color = '#fff' %}
+  {% assign text_color = '#333' %}
+  {% assign hover_color = '#999' %}
+  {% assign overlay_color = 'rgba(255, 255, 255, 0.7)' %}
+{% elsif color_mode == 'dark' %}
+  {% assign bg_color = '#111' %}
+  {% assign text_color = '#ccc' %}
+  {% assign hover_color = '#777' %}
+  {% assign overlay_color = 'rgba(0, 0, 0, 0.7)' %}
+{% else %}
+  {% assign bg_color = '#fff' %}
+  {% assign text_color = '#333' %}
+  {% assign hover_color = '#999' %}
+  {% assign overlay_color = 'rgba(255, 255, 255, 0.7)' %}
+{% endif %}
+
+{% assign highlight_color = 'rgba(128,128,128,0.2)' %}
+
+html {
+  background: {{ bg_color }};
+}
+
+body {
+  font-family: 'Rosario', 'Helvetica', sans-serif;
+  font-size: 16px;
+  color: {{ text_color }};
+}
+
+p {
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 16px;
+  margin-top: 1em;
+  margin-bottom: 5px;
+  color: #999;
+}
+
+a, button {
+  color: {{ text_color }};
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+}
+  a:hover {
+    color: {{ hover_color }};
+  }
+
+header {
+  padding: 20px 20px 10px 20px;
+}
+  header img {
+    max-height: 50px;
+  }
+  header ul {
+    padding-top: 15px;
+    margin-left: -6px;
+    width: 100%;
+  }
+    header li {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+      header li a {
+        color: #999;
+        padding: 5px 8px;
+      }
+        header li a:hover,
+        .selected {
+          color: {{ text_color }};
+          background: rgba(128,128,128,0.15);
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+        }
+
+#photos {
+  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  white-space:nowrap;
+  padding: 0 10px 0 20px;
+  margin-bottom: 10px;
+  font-size: 0;
+}
+  .photowrapper {
+    position: relative;
+    margin-right: {{ photo_margin }};
+    display: inline-block;    
+  }
+    .photoinfo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0 10px 10px 10px;
+      font-size: 16px;
+      white-space: normal;
+      background: {{ overlay_color }};
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+    }
+      .photoinfo.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .photoinfo > * {
+        margin-top: 5px;
+        line-height: 1.4;
+      }
+      .photoinfo li {
+        float: left;
+        font-style: italic;
+        font-size: 14px;
+        margin-right: 20px;
+      }
+        .photoinfo li:last-child {
+          margin-right: 0;
+        }
+      .photoinfo .map {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      }
+      .store_links a {
+        margin-right: 10px;
+      }
+        .store_links a:last-child {
+          margin-right: 0;
+        }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 15px 20px 10px 20px;
+  font-size: 12px;
+}
+  footer p,
+  footer a {
+    color: {{ hover_color }};
+  }
+
+.infopage {
+  box-sizing: border-box;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+  .infopage p {
+    margin-bottom: 1em;
+  }
+  #about {
+    min-width: 320px;
+    max-width: 480px;
+  }
+
+    #about .avatar {
+      width: 100px;
+      margin-top: 10px;
+    }
+    #about li {
+      line-height: 1.6;
+    }
+    #about .map {
+      width: 280px;
+    }
+    
+  input, textarea {
+    color: {{ text_color }} !important;
+    border: none;
+    border: 1px solid {{ highlight_color }};
+    padding: 10px;
+    background: {{ bg_color }};
+  }
+  
+  textarea {
+    width: 280px;
+    min-height: 100px;
+  }
+  
+  #rc {
+    margin-left: -9px;
+  }
+  
+  button {
+    width: 160px;
+    margin: 20px 0;
+    padding: 20px;
+    border: none;
+    border: 1px solid #ccc;
+    background: none;
+    background: #eee;
+    font-family: 'Rosario', 'Helvetica', sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+    button:hover {
+      background: #ddd;
+      border: 1px solid #aaa;
+      cursor: pointer;
+    }
+
+{% if color_mode == 'vintage' %}
+  body {
+    background: url({{ vintage_bg }}) no-repeat top left;
+    font-family: 'Special Elite', 'Helvetica Neue', sans-serif;
+  }
+  header {
+    padding-left: 160px;
+    border-bottom: 1px solid rgba(201, 233, 248, 0.8);
+  }
+  header li a {
+    margin-right: 5px;
+  }
+    header li a:hover {
+      background: none;
+      border-bottom: 2px dashed {{ hover_color }};
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+    }
+  .selected {
+    color: {{ text_color }};
+    background: none;
+    border-bottom: 2px dashed {{ text_color }};
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+  }
+  #photos img {
+    margin-right: 6px;
+    display: inline-block;
+    border: 10px solid #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transform-origin: top center;
+    -webkit-transform-origin: center 30%;
+    -moz-transform-origin: top center;
+  }
+  .photoinfo {
+    padding: 30px 20px 10px 20px;
+  }
+{% endif %}
+
+/* Adjustments for Mobile */
+@media only screen and (max-width: 480px), only screen and (max-height: 480px) {
+  header {
+    padding: 10px 10px 2px 10px;
+  }
+    header ul {
+      padding-top: 5px;
+    }
+      li {
+        font-size: 14px;
+      }
+  #photos {
+    padding-left: 10px;
+  }
+    .photoinfo {
+      display: none;
+    }
+  .infopage {
+    padding: 10px;
+  }
+  footer {
+    padding: 10px;
+  }
+  h1, h2 {
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 14px;
+  }
+}
